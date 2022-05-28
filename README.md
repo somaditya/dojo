@@ -15,5 +15,5 @@ Code Kata is an attempt to bring this element of practice to software developmen
 Remember that the point of the kata is not arriving at a correct answer. The point is the stuff you learn along the way. The goal is the practice, not the solution.
 
 ## Credits
-[CodeKata](http://codekata.com/)
-[Wikipedia](https://en.wikipedia.org/wiki/Kata#Outside_martial_arts)
+* [CodeKata](http://codekata.com/)
+* [Wikipedia](https://en.wikipedia.org/wiki/Kata#Outside_martial_arts)
