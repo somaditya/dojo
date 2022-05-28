@@ -1,9 +1,8 @@
 package com.hackerrank;
 
-import java.io.*;
 import java.util.*;
 
-public class ArrayList {
+public class JavaArrayList<I extends Number> {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -17,7 +16,6 @@ public class ArrayList {
 
             if (d == 0) {
                 list.add(null);
-                continue;
             } else {
                 for (int j = 1; j <= d; j++) {
                     line.add(sc.nextInt());
