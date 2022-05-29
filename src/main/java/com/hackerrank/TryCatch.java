@@ -15,10 +15,8 @@ public class TryCatch {
             in.close();
 
             System.out.println(x / y);
-        } catch (InputMismatchException e) {
-            System.out.println("java.util.InputMismatchException");
-        } catch (ArithmeticException e) {
-            System.out.println("java.lang.ArithmeticException: / by zero");
+        } catch (InputMismatchException | ArithmeticException e) {
+            System.out.println(e);
         }
     }
 }
