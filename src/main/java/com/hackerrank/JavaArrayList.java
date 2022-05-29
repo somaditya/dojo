@@ -2,7 +2,7 @@ package com.hackerrank;
 
 import java.util.*;
 
-public class JavaArrayList<I extends Number> {
+public class JavaArrayList {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
