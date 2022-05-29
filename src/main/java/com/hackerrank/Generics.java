@@ -1,7 +1,6 @@
 package com.hackerrank;
 
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 class Printer
