@@ -1,8 +1,6 @@
 package com.hackerrank;
 
-import java.io.Serial;
 import java.util.*;
-import java.security.*;
 
 interface Food {
     String getType();
@@ -15,7 +13,6 @@ class Pizza implements Food {
 }
 
 class Cake implements Food {
-
     public String getType() {
         return "Someone ordered a Dessert!";
     }
@@ -41,7 +38,6 @@ public class FactoryPattern {
 
         //factory instantiates an object
         Food food = foodFactory.getFood(sc.nextLine());
-
 
         System.out.println("The factory returned " + food.getClass());
         System.out.println(food.getType());
