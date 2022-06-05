@@ -1,14 +1,20 @@
 package com.oreilly.hfjava.game;
 
-import java.util.Scanner;
+import java.io.*;
 
 public class GameHelper {
 
     public String getUserInput(String prompt) {
-        System.out.println(prompt);
+        String inputLine = null;
+        System.out.println(prompt + " ");
 
-        Scanner scanner = new Scanner(System.in);
+        try {
+            BufferedReader is = new BufferedReader(new InputStreamReader(System.in));
+            inputLine = is.readLine();
+        } catch (IOException e) {
+            System.out.println("IOException: " + e);
+        }
 
-        return scanner.next();
+        return inputLine;
     }
 }
