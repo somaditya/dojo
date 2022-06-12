@@ -1,14 +1,21 @@
 package com.oreilly.hfjava.game;
 
+import java.util.ArrayList;
+
 public class SimpleStartupGame {
 
     public static void main(String[] args) {
         int numberOfGuesses = 0;
         GameHelper helper = new GameHelper();
-        SimpleStartup startup = new SimpleStartup();
+        DotCom startup = new DotCom();
 
         int randomNum = (int) (Math.random() * 5);
-        int[] locations = {randomNum, randomNum + 1, randomNum + 2};
+        ArrayList<String> locations = new ArrayList<String>();
+
+        locations.add(String.valueOf(randomNum));
+        locations.add(String.valueOf(randomNum + 1));
+        locations.add(String.valueOf(randomNum + 2));
+
         startup.setLocationCells(locations);
 
         boolean isAlive = true;
