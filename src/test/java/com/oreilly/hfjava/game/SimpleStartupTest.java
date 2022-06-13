@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class SimpleStartupTest {
 
     public static void main(String[] args) {
-        DotCom dot = new DotCom();
+        Startup dot = new Startup();
 
         ArrayList<String> locations = new ArrayList<String>();
         locations.add("2");
