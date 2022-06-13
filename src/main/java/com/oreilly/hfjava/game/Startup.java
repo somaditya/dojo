@@ -2,7 +2,7 @@ package com.oreilly.hfjava.game;
 
 import java.util.ArrayList;
 
-public class DotCom {
+public class Startup {
     ArrayList<String> locationCells;
     private String name;
 
@@ -22,8 +22,8 @@ public class DotCom {
             locationCells.remove(userInput);
 
             if (locationCells.isEmpty()) {
-                result = "kill";
                 System.out.println("You sank: " + name);
+                result = "kill";
             } else {
                 result = "hit";
             }
