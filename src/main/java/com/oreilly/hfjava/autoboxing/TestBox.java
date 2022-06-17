@@ -12,7 +12,13 @@ public class TestBox {
     }
 
     public static void main(String[] args) {
-        TestBox t = new TestBox();
-        t.go();
+        //TestBox t = new TestBox();
+        //t.go();
+
+        long billion = 1000000000;
+
+        String s = String.format("%,d", billion);
+
+        System.out.println(s);
     }
 }
