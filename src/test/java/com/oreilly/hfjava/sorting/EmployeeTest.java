@@ -1,4 +1,4 @@
-package com.oreilly.hfjava.comparable;
+package com.oreilly.hfjava.sorting;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -17,8 +17,11 @@ class EmployeeTest {
 
         System.out.println(employees);
 
-        Collections.sort(employees);
+        //Collections.sort(employees);
+        //System.out.println(employees);
 
+        SalaryDescComparator salComp = new SalaryDescComparator();
+        employees.sort(salComp);
         System.out.println(employees);
     }
 }
