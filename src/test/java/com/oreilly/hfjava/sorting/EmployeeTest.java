@@ -19,13 +19,13 @@ class EmployeeTest {
         System.out.println(employees);
 
         //Collections.sort(employees);
-        //System.out.println(employees);
 
         //SalaryDescComparator salComp = new SalaryDescComparator();
         //employees.sort(salComp);
-        //System.out.println(employees);
 
-        employees.sort(Comparator.comparing(Employee::getDept));
+        employees.sort((e1, e2) -> e1.getSalary().subtract(e2.getSalary()).intValue());
+        //employees.sort(Comparator.comparing(Employee::getDept));
+
         System.out.println(employees);
     }
 }
