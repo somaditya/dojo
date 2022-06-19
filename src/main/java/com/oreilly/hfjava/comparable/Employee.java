@@ -1,9 +1,8 @@
 package com.oreilly.hfjava.comparable;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
     private int id;
     private String name;
     private String dept;
@@ -30,5 +29,14 @@ public class Employee {
 
     public BigDecimal getSalary() {
         return salary;
+    }
+
+    public String toString() {
+        return "(Id: " + id + ", Name: " + name + ", Dept: " + dept + ", Salary: " + salary + ")";
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return name.compareTo(o.getName());
     }
 }
