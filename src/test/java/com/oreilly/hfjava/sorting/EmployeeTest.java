@@ -33,7 +33,7 @@ class EmployeeTest {
                 .filter(e -> e.getSalary().subtract(new BigDecimal("50000")).doubleValue() > 0.00)
                 .limit(3)
                 .skip(1)
-                .sorted(Comparator.comparing(Employee::getSalary))
+                .sorted(Comparator.comparing(Employee::getSalary).reversed())
                 .toList();
 
         System.out.println(result);
