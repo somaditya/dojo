@@ -3,6 +3,7 @@ package com.oreilly.hfjava.sorting;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 class EmployeeTest {
@@ -20,8 +21,11 @@ class EmployeeTest {
         //Collections.sort(employees);
         //System.out.println(employees);
 
-        SalaryDescComparator salComp = new SalaryDescComparator();
-        employees.sort(salComp);
+        //SalaryDescComparator salComp = new SalaryDescComparator();
+        //employees.sort(salComp);
+        //System.out.println(employees);
+
+        employees.sort(Comparator.comparing(Employee::getDept));
         System.out.println(employees);
     }
 }
