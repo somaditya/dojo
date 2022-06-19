@@ -31,6 +31,22 @@ public class Employee implements Comparable<Employee> {
         return salary;
     }
 
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Employee)) {
+            return false;
+        }
+
+        Employee other = (Employee) o;
+
+        return this.id == other.getId() &&
+                this.name.equals(other.getName()) &&
+                this.dept.equals(other.getDept()) &&
+                this.salary.equals(other.getSalary());
+    }
+
     public String toString() {
         return "(Id: " + id + ", Name: " + name + ", Dept: " + dept + ", Salary: " + salary + ")";
     }

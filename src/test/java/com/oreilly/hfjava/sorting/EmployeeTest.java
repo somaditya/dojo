@@ -23,9 +23,19 @@ class EmployeeTest {
         //SalaryDescComparator salComp = new SalaryDescComparator();
         //employees.sort(salComp);
 
-        employees.sort((e1, e2) -> e1.getSalary().subtract(e2.getSalary()).intValue());
+        //employees.sort((e1, e2) -> e1.getSalary().subtract(e2.getSalary()).intValue());
         //employees.sort(Comparator.comparing(Employee::getDept));
 
-        System.out.println(employees);
+        //System.out.println(employees);
+
+        List<Employee> result = employees.stream()
+                .distinct()
+                .filter(e -> e.getSalary().subtract(new BigDecimal("50000")).doubleValue() > 0.00)
+                .limit(3)
+                .skip(1)
+                .sorted(Comparator.comparing(Employee::getSalary))
+                .toList();
+
+        System.out.println(result);
     }
 }
