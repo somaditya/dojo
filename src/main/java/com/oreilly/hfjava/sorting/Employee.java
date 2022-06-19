@@ -1,4 +1,4 @@
-package com.oreilly.hfjava.comparable;
+package com.oreilly.hfjava.sorting;
 
 import java.math.BigDecimal;
 
