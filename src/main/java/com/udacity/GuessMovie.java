@@ -26,6 +26,6 @@ public class GuessMovie {
             System.out.print("_");
         }
 
-        
+
     }
 }
