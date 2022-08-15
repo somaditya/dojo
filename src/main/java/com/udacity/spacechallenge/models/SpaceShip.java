@@ -1,4 +1,4 @@
-package com.udacity.spacechallenge;
+package com.udacity.spacechallenge.models;
 
 public interface SpaceShip {
     boolean launch();

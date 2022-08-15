@@ -1,9 +1,13 @@
-package com.udacity.spacechallenge;
+package com.udacity.spacechallenge.models;
 
 public class U2 extends Rocket {
 
     public U2() {
         super(120000000, 18000, 0, 29000);
+    }
+
+    public U2(int cost, int weight, int cargo, int max_weight) {
+        super(cost, weight, cargo, max_weight);
     }
 
     @Override
@@ -28,5 +32,15 @@ public class U2 extends Rocket {
         }
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "U2{" +
+                "cost=" + cost +
+                ", weight=" + weight +
+                ", cargo=" + cargo +
+                ", max_weight=" + max_weight +
+                '}';
     }
 }
