@@ -46,7 +46,7 @@ public class GuessMovie {
             Scanner scanner = new Scanner(System.in);
             String guess = scanner.next();
             boolean found = false;
-
+            
             for (int i = 0; i < movie.length(); i++) {
                 if ((guess.charAt(0) == movie.charAt(i)) && (correct[i] == false)) {
                     correct[i] = true;
