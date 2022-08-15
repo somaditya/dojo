@@ -1,4 +1,4 @@
-package com.udacity.nd079;
+package com.udacity.nd079.javadoc;
 
 /**
  * Example class for JavaDoc

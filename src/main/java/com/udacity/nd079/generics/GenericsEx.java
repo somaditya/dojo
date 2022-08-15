@@ -2,7 +2,7 @@ package com.udacity.nd079.generics;
 
 import java.util.ArrayList;
 
-public class GenericsExample {
+public class GenericsEx {
     public static void main(String[] args) {
         ArrayList<Object> variables = new ArrayList<>();
 
