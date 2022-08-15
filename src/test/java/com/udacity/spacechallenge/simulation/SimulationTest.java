@@ -38,9 +38,25 @@ class SimulationTest {
 
     @Test
     void runSimulation() {
-        ArrayList<Rocket> rockets = new ArrayList<>();
-        simulation.loadU1(simulation.loadItems(PHASE_1)).forEach(u1 -> rockets.add(u1));
+        ArrayList<Item> phase1Items = simulation.loadItems(PHASE_1);
+        ArrayList<Item> phase2Items = simulation.loadItems(PHASE_2);
 
-        System.out.println(simulation.runSimulation(rockets));
+        ArrayList<U1> u1Phase1 = simulation.loadU1(phase1Items);
+        ArrayList<U1> u1Phase2 = simulation.loadU1(phase2Items);
+
+        ArrayList<Rocket> u1Rockets = new ArrayList<>();
+        u1Phase1.forEach(u1 -> u1Rockets.add(u1));
+        u1Phase2.forEach(u1 -> u1Rockets.add(u1));
+
+        System.out.println("U1 Budget: $" + simulation.runSimulation(u1Rockets));
+
+        ArrayList<U2> u2Phase1 = simulation.loadU2(phase1Items);
+        ArrayList<U2> u2Phase2 = simulation.loadU2(phase2Items);
+
+        ArrayList<Rocket> u2Rockets = new ArrayList<>();
+        u2Phase1.forEach(u1 -> u2Rockets.add(u1));
+        u2Phase2.forEach(u1 -> u2Rockets.add(u1));
+
+        System.out.println("U2 Budget: $" + simulation.runSimulation(u2Rockets));
     }
 }
