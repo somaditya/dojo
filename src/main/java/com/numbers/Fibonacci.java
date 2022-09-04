@@ -7,16 +7,16 @@ public class Fibonacci {
     static BigInteger fib(int n) {
         var a = BigInteger.valueOf(0);
         var b = BigInteger.valueOf(1);
-        var result = BigInteger.valueOf(0);
+        var c = BigInteger.valueOf(0);
 
         if (n <= 1) return BigInteger.valueOf(n);
 
         for (int i = 1; i < n; i++) {
-            result = a.add(b);
+            c = a.add(b);
             a = b;
-            b = result;
+            b = c;
         }
-        return result;
+        return c;
     }
 
     public static void main(String[] args) {
