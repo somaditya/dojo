@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.TreeMap;
 
 public class SecondHands {
-
     public static void main(String[] args) {
         File inputFile = new File("src/main/java/com/facebook/hackercup/a/second_hands_validation_input.txt");
         File outputFile = new File("src/main/java/com/facebook/hackercup/a/second_hands_output.txt");
