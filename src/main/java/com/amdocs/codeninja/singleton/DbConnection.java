@@ -24,8 +24,8 @@ public final class DbConnection {
     }
 
     public static void main(String[] args) {
-        DbConnection connection1 = DbConnection.getInstance("foo");
-        DbConnection connection2 = DbConnection.getInstance("bar");
+        DbConnection connection1 = DbConnection.getInstance("Oracle");
+        DbConnection connection2 = DbConnection.getInstance("Postgres");
 
         System.out.println(connection1.connectionString);
         System.out.println(connection2.connectionString);

@@ -1,6 +1,6 @@
 package com.hackerrank;
 
-import java.util.*;
+import java.util.Scanner;
 
 interface Food {
     String getType();
@@ -42,7 +42,6 @@ public class FactoryPattern {
         System.out.println("The factory returned " + food.getClass());
         System.out.println(food.getType());
     }
-
 }
 
 
