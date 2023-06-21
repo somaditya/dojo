@@ -1,4 +1,4 @@
-package com.codeforces.r881div3;
+package com.codeforces.contests.r881div3;
 
 import java.util.ArrayList;
 import java.util.Collections;
