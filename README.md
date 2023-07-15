@@ -1,3 +1,3 @@
-# Java Katas
+# dojo
 
-Competitive programming solutions.
+## Data structures and algorithm solutions repo
