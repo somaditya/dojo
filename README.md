@@ -1,2 +1,2 @@
 # dojo
-- Data structures and algorithm solutions repo
+Repo for practicing algorithms and data structures
