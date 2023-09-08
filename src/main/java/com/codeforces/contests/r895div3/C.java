@@ -12,21 +12,15 @@ public class C {
             int l = sc.nextInt();
             int r = sc.nextInt();
 
-            int a = l;
-            int b = r - a;
-
-            solve(a, b);
+            System.out.println(solve(l, r));
         }
     }
 
-    public static String solve(int a, int b) {
-        while (a <= b) {
-            if (gcd(a, b) != 1) {
-                return (a + " " + b);
+    public static String solve(int l, int r) {
+        for (int a = 2; a <= (int) Math.sqrt(l + r); a++) {
+            for (int b = Math.max(a, l - a); b <= (r - a); b++) {
+                if (gcd(a, b) != 1) return a + " " + b;
             }
-
-            a++;
-            b--;
         }
 
         return "-1";

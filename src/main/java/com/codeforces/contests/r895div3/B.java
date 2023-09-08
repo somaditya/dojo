@@ -1,6 +1,5 @@
 package com.codeforces.contests.r895div3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class B {
