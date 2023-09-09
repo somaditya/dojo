@@ -22,6 +22,6 @@ public class A {
 
         if (a == b) return ans;
 
-        return (int) Math.ceil((((a + b) / 2.0) - Math.min(a , b)) / c);
+        return (int) Math.ceil((((a + b) / 2.0) - Math.min(a, b)) / c);
     }
 }

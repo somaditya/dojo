@@ -8,7 +8,7 @@ public class B {
         int t = sc.nextInt();
 
         for (int i = 0; i < t; i++) {
-            int n = sc.nextInt();;
+            int n = sc.nextInt();
 
             int[] d = new int[n];
             int[] s = new int[n];
@@ -29,7 +29,7 @@ public class B {
             int trap = d[i] - 1;
             int time = s[i];
 
-            int maxK = trap + (time + 1)/2;
+            int maxK = trap + (time + 1) / 2;
 
             k = Math.min(k, maxK);
         }
