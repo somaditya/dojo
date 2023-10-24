@@ -1,2 +1,2 @@
 # dojo
-Repo for algorithms, data structures and competitive programming solutions
+Algorithms, data structures and competitive programming solutions
