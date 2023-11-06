@@ -1,35 +1,43 @@
 package com.scaler.arrays;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AddOneToNumber {
-    public static ArrayList<Integer> plusOne(ArrayList<Integer> A) {
-        long num = 0;
-        int exp = 0;
+    public ArrayList<Integer> plusOne(ArrayList<Integer> A) {
+        StringBuilder sb = new StringBuilder();
 
-        for (int i = A.size() - 1; i >= 0; i--) {
-            num += (long) Math.pow(10, exp++) * A.get(i);
+        int n = A.size();
+
+        for (int i = 0; i<n; i++) {
+            sb.append(A.get(i));
         }
 
-        num++;
+        BigInteger num = new BigInteger(sb.toString());
+        num = num.add(BigInteger.ONE);
 
-        ArrayList<Integer> result  = new ArrayList<>();
+        StringBuilder add1 = new StringBuilder();
 
-        while (num > 0) {
-            result.add((int) (num % 10));
-            num /= 10;
+        while (num.compareTo(BigInteger.valueOf(0)) > 0) {
+            add1.append(num.remainder(BigInteger.TEN));
+            num = num.divide(BigInteger.TEN);
         }
 
-        Collections.reverse(result);
+        add1.reverse();
+        ArrayList<Integer> list = new ArrayList<>();
 
-        return result;
+        for (int i = 0; i<add1.length(); i++) {
+            list.add(Integer.parseInt(String.valueOf(add1.charAt(i))));
+        }
+
+        return list;
     }
 
     public static void main(String[] args) {
         ArrayList<Integer> input = new ArrayList<>(List.of(1, 1, 1, 3, 2, 1, 1, 2, 5, 9, 6, 6));
+        AddOneToNumber a = new AddOneToNumber();
 
-        System.out.println(plusOne(input));
+        System.out.println(a.plusOne(input));
     }
 }
