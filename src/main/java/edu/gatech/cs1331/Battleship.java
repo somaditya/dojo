@@ -34,7 +34,7 @@ public class Battleship {
                 System.out.println("Invalid coordinates. Choose different coordinates.");
                 continue;
             }
-            rows[i] = r;
+            rows[i++] = r;
             cols[i] = c;
         } while (i < 5);
     }
