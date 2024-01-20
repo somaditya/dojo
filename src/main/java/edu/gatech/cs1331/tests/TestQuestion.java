@@ -1,4 +1,4 @@
-package edu.gatech.cs1331;
+package edu.gatech.cs1331.tests;
 
 import java.util.Random;
 
