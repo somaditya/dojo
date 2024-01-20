@@ -45,7 +45,7 @@ public abstract class Pet {
     public abstract int treat();
 
     public void speak() {
-        String out = String.format("Hello, My name is %s", name);
+        String out = String.format("Hello! My name is %s", name);
         out = (painLevel > 5) ? out.toUpperCase() : out;
         System.out.println(out);
     }

@@ -60,7 +60,8 @@ public class Clinic {
             }
 
             while (!validPain) {
-                System.out.printf("On a scale of 1 to 10, how much pain is %s in right now?\n", name);
+                System.out.printf("On a scale of 1 to 10, how much pain is %s in right now?\n",
+                        name);
 
                 if (input.hasNextInt()) {
                     painLevel = input.nextInt();

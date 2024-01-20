@@ -29,7 +29,6 @@ public class Cat extends Pet {
         }
 
         heal();
-
         return tTime;
     }
 

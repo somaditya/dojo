@@ -5,7 +5,7 @@ public class Dog extends Pet {
 
     public Dog(String name, double health, int painLevel, double droolRate) {
         super(name, health, painLevel);
-        this.droolRate = droolRate;
+        this.droolRate = (droolRate <= 0) ? 0.5 : droolRate;
     }
 
     public Dog(String name, double health, int painLevel) {
