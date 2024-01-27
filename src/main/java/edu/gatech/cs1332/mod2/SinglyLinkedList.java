@@ -33,7 +33,7 @@ public class SinglyLinkedList<T> {
 
         if (size == 0) {
             head = newNode;
-            tail = head;
+            tail = newNode;
         }
 
         newNode.setNext(head);
@@ -57,7 +57,7 @@ public class SinglyLinkedList<T> {
 
         if (size == 0) {
             head = newNode;
-            tail = head;
+            tail = newNode;
         }
 
         tail.setNext(newNode);
