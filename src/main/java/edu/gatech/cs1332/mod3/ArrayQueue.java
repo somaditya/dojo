@@ -52,9 +52,9 @@ public class ArrayQueue<T> {
         if (size == capacity) {
             T[] newArray = (T[]) new Object[capacity * 2];
 
-            for (int i = front; i < front + size; i++) {
+            for (int i = 0; i < size; i++) {
                 int index = (front + i) % capacity;
-                newArray[index] = backingArray[index];
+                newArray[i] = backingArray[index];
             }
 
             backingArray = newArray;
