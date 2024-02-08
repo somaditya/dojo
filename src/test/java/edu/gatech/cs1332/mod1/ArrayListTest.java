@@ -1,9 +1,8 @@
 package edu.gatech.cs1332.mod1;
 
+import edu.gatech.cs1332.x1.mod1.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

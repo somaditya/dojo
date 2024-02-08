@@ -1,4 +1,4 @@
-package edu.gatech.cs1332.mod3;
+package edu.gatech.cs1332.x1.mod3;
 
 import java.util.NoSuchElementException;
 

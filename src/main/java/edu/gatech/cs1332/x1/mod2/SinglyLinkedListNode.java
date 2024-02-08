@@ -1,4 +1,4 @@
-package edu.gatech.cs1332.mod2;
+package edu.gatech.cs1332.x1.mod2;
 
 /**
  * Node class used for implementing the SinglyLinkedList.

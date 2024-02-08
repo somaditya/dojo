@@ -1,6 +1,6 @@
 package edu.gatech.cs1332.mod2;
 
-import org.junit.jupiter.api.BeforeEach;
+import edu.gatech.cs1332.x1.mod2.SinglyLinkedList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
