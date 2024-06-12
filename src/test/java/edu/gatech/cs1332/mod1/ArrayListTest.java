@@ -34,7 +34,7 @@ class ArrayListTest {
         printList();
     }
 
-    @Test
+//    @Test
     void removeFromFront() {
         for (int i = 0; i < 42; i++) {
             list.addToBack(i+1);

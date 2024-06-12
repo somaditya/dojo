@@ -39,7 +39,7 @@ public class SinglyLinkedListNode<T> {
      *
      * @return the data
      */
-    T getData() {
+    public T getData() {
         return data;
     }
 
