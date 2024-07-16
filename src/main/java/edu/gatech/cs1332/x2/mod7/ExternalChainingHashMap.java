@@ -75,7 +75,9 @@ public class ExternalChainingHashMap<K, V> {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
         if (key == null || value == null) throw new IllegalArgumentException();
 
-        double loadFactor = (double) ++size / table.length;
+        size++;
+
+        double loadFactor = (double) size / table.length;
 
         if (loadFactor > MAX_LOAD_FACTOR) resizeBackingTable((2 * table.length) + 1);
 
@@ -126,6 +128,7 @@ public class ExternalChainingHashMap<K, V> {
         int hash = Math.abs(key.hashCode() % table.length);
 
         if (table[hash] != null && table[hash].getKey().equals(key)) {
+            size--;
             V oldValue = table[hash].getValue();
             table[hash] = table[hash].getNext();
 
@@ -135,19 +138,20 @@ public class ExternalChainingHashMap<K, V> {
 
             while (entry != null) {
                 if (entry.getKey().equals(key)) {
+                    size--;
                     V oldValue = entry.getValue();
-                    entry = entry.getNext();
+                    entry.setKey(entry.getNext() == null ? null : entry.getNext().getKey());
+                    entry.setValue(entry.getNext() == null ? null : entry.getNext().getValue());
+                    entry.setNext(entry.getNext());
 
                     return oldValue;
                 }
 
                 entry = entry.getNext();
             }
+        }
 
             throw new NoSuchElementException();
-        } else {
-            throw new NoSuchElementException();
-        }
     }
 
     /**
@@ -172,7 +176,7 @@ public class ExternalChainingHashMap<K, V> {
         ExternalChainingMapEntry<K, V>[] oldTable = table;
         ExternalChainingMapEntry<K, V>[] newTable = (ExternalChainingMapEntry<K, V>[]) new ExternalChainingMapEntry[length];
         table = newTable;
-        size = 0;
+        size = 1;
 
         for (ExternalChainingMapEntry<K, V> entry : oldTable) {
             if (entry != null) {
