@@ -28,6 +28,7 @@ public class PatternMatching {
      */
     public static List<Integer> boyerMoore(CharSequence pattern, CharSequence text, CharacterComparator comparator) {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        return null;
     }
 
     /**
@@ -57,5 +58,6 @@ public class PatternMatching {
      */
     public static Map<Character, Integer> buildLastTable(CharSequence pattern) {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        return null;
     }
 }

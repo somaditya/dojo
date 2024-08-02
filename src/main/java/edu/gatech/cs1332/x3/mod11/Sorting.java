@@ -1,6 +1,8 @@
 package edu.gatech.cs1332.x3.mod11;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * Your implementation of various divide & conquer sorting algorithms.
@@ -38,37 +40,45 @@ public class Sorting {
      */
     public static <T> void mergeSort(T[] arr, Comparator<T> comparator) {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-        int n = arr.length;
+        int len = arr.length;
+        int mid = len / 2;
 
-        if (n < 2) return;
+        if (len < 2) return;
 
-        int mid = n / 2;
-
-        T[] arr1 = (T[]) new Object[mid];
-        T[] arr2 = (T[]) new Object[n - mid];
+        T[] left = (T[]) new Object[mid];
+        T[] right = (T[]) new Object[len - mid];
 
         for (int i = 0; i < mid; i++) {
-            arr1[i] = arr[i];
+            left[i] = arr[i];
         }
 
-        for (int i = mid; i < n; i++) {
-            arr2[i - mid] = arr[i];
+        for (int i = 0; i < len - mid; i++) {
+            right[i] = arr[i + mid];
         }
 
-        mergeSort(arr1, comparator);
-        mergeSort(arr2, comparator);
+        mergeSort(left, comparator);
+        mergeSort(right, comparator);
 
-        merge(arr1, arr2, arr, comparator);
-    }
+        int l = 0;
+        int r = 0;
+        int c = 0;
 
-    private static <T> void merge(T[] arr1, T[] arr2, T[] arr, Comparator<T> comparator) {
-        int i = 0, j = 0;
+        while (l < mid && r < (len - mid)) {
+            if (comparator.compare(left[l], right[r]) < 1) {
+                arr[c] = left[l++];
+            } else {
+                arr[c] = right[r++];
+            }
 
-        while (i + j < arr.length) {
-            if (j == arr2.length || (i < arr1.length && comparator.compare(arr1[i], arr2[j]) < 0))
-                arr[i + j] = arr1[i++];
-            else
-                arr[i + j] = arr2[j++];
+            c++;
+        }
+
+        while (l < mid) {
+            arr[c++] = left[l++];
+        }
+
+        while (r < len - mid) {
+            arr[c++] = right[r++];
         }
     }
 
@@ -104,42 +114,42 @@ public class Sorting {
      */
     public static void lsdRadixSort(int[] arr) {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-        int n = arr.length;
-        int m = getMax(arr, n);
+        List<Integer>[] buckets = new ArrayList[19];
+        int len = arr.length;
 
-        for (int exp = 1; m / exp > 0; exp *= 10)
-            countSort(arr, n, exp);
-    }
-
-    private static int getMax(int[] arr, int n) {
-        int mx = arr[0];
-        for (int i = 1; i < n; i++)
-            if (arr[i] > mx)
-                mx = arr[i];
-        return mx;
-    }
-
-    private static void countSort(int[] arr, int n, int exp) {
-        int[] output = new int[n]; // output array
-        int i;
-        int[] count = new int[10];
-
-        for (int j = 0; j < count.length; j++) {
-            count[j] = 0;
+        for (int i = 0; i < buckets.length; i++) {
+            buckets[i] = new ArrayList<>();
         }
 
-        for (i = 0; i < n; i++)
-            count[(arr[i] / exp) % 10]++;
+        int k = 0;
+        for (int i = 0; i < len; i++) {
+            int num = arr[i];
+            int d = 0;
 
-        for (i = 1; i < 10; i++)
-            count[i] += count[i - 1];
+            while (num > 0) {
+                d++;
+                num /= 10;
+            }
 
-        for (i = n - 1; i >= 0; i--) {
-            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
-            count[(arr[i] / exp) % 10]--;
+            k = Math.max(k, d);
         }
 
-        for (i = 0; i < n; i++)
-            arr[i] = output[i];
+        int base = 1;
+
+        for (int i = 0; i <= k; i++) {
+            for (int j = 0; j < len; j++) {
+                int digit = (arr[j] / base) % 10;
+                buckets[digit + 9].add(arr[j]);
+            }
+
+            int index = 0;
+            for (List<Integer> bucket : buckets) {
+                while (!bucket.isEmpty()) {
+                    arr[index++] = bucket.remove(0);
+                }
+            }
+
+            base *= 10;
+        }
     }
 }

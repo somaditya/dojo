@@ -30,22 +30,18 @@ class SortingTest {
 
     @Test
     void lsdRadixSort() {
-        int[] arr = new int[20];
-
-        for (int i = 0; i < 20; i++) {
-            arr[i] = (int) (Math.random() * 100);
-        }
+        int[] arr = {-1, -2, -3, -4, -5, -6, -7, -8, -9, 0};
 
         System.out.println("\nLSD RADIX SORT:");
         System.out.println("before sorting:");
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.print(arr[i] + ", ");
         }
 
         Sorting.lsdRadixSort(arr);
 
         System.out.println("\nafter sorting: ");
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.print(arr[i] + ", ");
         }
 
