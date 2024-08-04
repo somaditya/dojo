@@ -137,6 +137,7 @@ public class Sorting {
         int base = 1;
 
         for (int i = 0; i <= k; i++) {
+            System.out.println("\nIteration " + (i+1));
             for (int j = 0; j < len; j++) {
                 int digit = (arr[j] / base) % 10;
                 buckets[digit + 9].add(arr[j]);
@@ -150,6 +151,10 @@ public class Sorting {
             }
 
             base *= 10;
+
+            for (int n : arr) {
+                System.out.print(n + ", ");
+            }
         }
     }
 }

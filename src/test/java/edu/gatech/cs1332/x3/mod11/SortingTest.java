@@ -30,18 +30,19 @@ class SortingTest {
 
     @Test
     void lsdRadixSort() {
-        int[] arr = {-1, -2, -3, -4, -5, -6, -7, -8, -9, 0};
+        int[] arr = {1000, 2014, 231, 53, -1, -92, -9403, 634, -207};
 
         System.out.println("\nLSD RADIX SORT:");
         System.out.println("before sorting:");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + ", ");
         }
 
+        System.out.println();
         Sorting.lsdRadixSort(arr);
 
         System.out.println("\nafter sorting: ");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + ", ");
         }
 
