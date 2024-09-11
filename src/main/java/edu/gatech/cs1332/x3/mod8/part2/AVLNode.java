@@ -1,4 +1,4 @@
-package edu.gatech.cs1332.x3.mod8;
+package edu.gatech.cs1332.x3.mod8.part2;
 /**
  * Node class used for implementing the AVL.
  *
