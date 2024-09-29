@@ -113,66 +113,48 @@ public class Sorting {
      * @param arr The array to be sorted.
      */
     public static void lsdRadixSort(int[] arr) {
-        if (arr == null || arr.length <= 1) return;
+        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        List<Integer>[] buckets = new ArrayList[19];
+        int len = arr.length;
 
-        // Find the minimum and maximum values
-        int min = arr[0];
-        int max = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) min = arr[i];
-            if (arr[i] > max) max = arr[i];
+        for (int i = 0; i < buckets.length; i++) {
+            buckets[i] = new ArrayList<>();
         }
 
-        // Find the number of digits in the range
-        int maxAbs = Math.max(Math.abs(min), Math.abs(max));
-        int digits = 0;
-        while (maxAbs > 0) {
-            digits++;
-            maxAbs /= 10;
+        int k = 0;
+        for (int i = 0; i < len; i++) {
+            int num = arr[i];
+            int d = 0;
+
+            while (num > 0) {
+                d++;
+                num /= 10;
+            }
+
+            k = Math.max(k, d);
         }
 
-        // Perform LSD Radix Sort
-        int exp = 1;
-        int[] output = new int[arr.length];
-        for (int d = 0; d < digits; d++) {
-            int[] count = new int[19]; // -9 to 9
+        int base = 1;
 
-            // Store count of occurrences in count[]
-            for (int value : arr) {
-                int index = (value / exp) % 10 + 9;
-                count[index]++;
+        for (int i = 0; i <= k; i++) {
+            System.out.println("\nIteration " + (i+1));
+            for (int j = 0; j < len; j++) {
+                int digit = (arr[j] / base) % 10;
+                buckets[digit + 9].add(arr[j]);
             }
 
-            // Change count[i] so that count[i] now contains actual
-            // position of this digit in output[]
-            for (int i = 1; i < 19; i++) {
-                count[i] += count[i - 1];
+            int index = 0;
+            for (List<Integer> bucket : buckets) {
+                while (!bucket.isEmpty()) {
+                    arr[index++] = bucket.remove(0);
+                }
             }
 
-            // Build the output array
-            for (int i = arr.length - 1; i >= 0; i--) {
-                int index = (arr[i] / exp) % 10 + 9;
-                output[count[index] - 1] = arr[i];
-                count[index]--;
+            base *= 10;
+
+            for (int n : arr) {
+                System.out.print(n + ", ");
             }
-
-            // Copy the output array to arr[] manually
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = output[i];
-            }
-
-            exp *= 10;
-        }
-
-        // Handle negative numbers by reversing their order
-        int left = 0;
-        int right = arr.length - 1;
-        while (left < right && arr[left] < 0) {
-            int temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = temp;
-            left++;
-            right--;
         }
     }
 }
