@@ -2,7 +2,7 @@ package edu.gatech.cs1332.x3.mod10;
 
 import org.junit.jupiter.api.Test;
 
-class SortingTest {
+class MergeSortTest {
 
     @Test
     void bubbleSort() {

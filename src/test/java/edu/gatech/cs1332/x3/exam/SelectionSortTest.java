@@ -1,12 +1,13 @@
 package edu.gatech.cs1332.x3.exam;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 
-class SortingTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class SelectionSortTest {
     static Integer[] arr;
 
     @BeforeAll
@@ -23,9 +24,9 @@ class SortingTest {
     }
 
     @Test
-    void mergeSort() {
-        Sorting.mergeSort(arr, Comparator.comparingInt(Integer::intValue));
-        System.out.println("After merge sort: \n");
+    void selectionSort() {
+        SelectionSort.selectionSort(arr, Comparator.comparingInt(Integer::intValue));
+        System.out.println("After selection sort: \n");
 
         for (int i = 0; i < 100; i++) {
             System.out.print(arr[i] + ", ");

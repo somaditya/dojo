@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Your implementation of Merge Sort.
  */
-public class Sorting {
+public class MergeSort {
 
     /**
      * Implement merge sort.
