@@ -1,5 +1,7 @@
-package edu.gatech.cs1332.x4.mod12.mod12;
+package edu.gatech.cs1332.x4.mod12;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +26,43 @@ public class PatternMatching {
      * @return           List containing the starting index for each match found.
      */
     public static List<Integer> boyerMoore(CharSequence pattern, CharSequence text, CharacterComparator comparator) {
-        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-        return null;
+        List<Integer> matches = new ArrayList<>();
+
+        if (pattern.length() == 0 || text.length() == 0 || pattern.length() > text.length()) {
+            return matches;
+        }
+
+        // Build the last occurrence table
+        Map<Character, Integer> lastTable = buildLastTable(pattern);
+
+        int i = 0; // Position of the pattern's right end in the text
+        while (i <= text.length() - pattern.length()) {
+            int j = pattern.length() - 1; // Start comparing from the right end of pattern
+
+            // Keep matching characters from right to left as long as they match
+            while (j >= 0 && comparator.compare(pattern.charAt(j), text.charAt(i + j)) == 0) {
+                j--;
+            }
+
+            if (j == -1) {
+                // Pattern found - add the starting index to matches
+                matches.add(i);
+                // Move pattern by 1 to find overlapping patterns
+                i++;
+            } else {
+                // Character mismatch - calculate shift
+                char mismatchChar = text.charAt(i + j);
+                int lastOccurrence = lastTable.getOrDefault(mismatchChar, -1);
+
+                // Calculate the shift
+                // If character not in pattern: shift pattern length
+                // If character in pattern: shift to align last occurrence
+                int shift = Math.max(1, j - lastOccurrence);
+                i += shift;
+            }
+        }
+
+        return matches;
     }
 
     /**
@@ -54,7 +91,13 @@ public class PatternMatching {
      *         to their last occurrence in the pattern.
      */
     public static Map<Character, Integer> buildLastTable(CharSequence pattern) {
-        // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-        return null;
+        Map<Character, Integer> lastTable = new HashMap<>();
+
+        // For each character in the pattern, store its last occurrence index
+        for (int i = 0; i < pattern.length(); i++) {
+            lastTable.put(pattern.charAt(i), i);
+        }
+
+        return lastTable;
     }
 }
